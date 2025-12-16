@@ -5,7 +5,7 @@ load_dotenv()
 
 
 class Settings(BaseSettings):
-    db_host: str = "localhost"
+    db_host: str = "postgres"
     db_port: int = 5432
     db_user: str = "postgres"
     db_password: str = "postgres"

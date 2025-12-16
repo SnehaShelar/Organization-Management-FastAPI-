@@ -43,15 +43,14 @@ def create_database(db_name: str) -> bool:
     try:
         # Establish a connection to the default "postgres" database
         conn = psycopg2.connect(
-            dbname='postgres',
-            user=settings.db_user,
-            password=settings.db_password,
-            host=settings.db_host,
-            port=settings.db_port,
+            dbname='postgres_db',
+            user='postgres',
+            password='postgres',
+            host='postgres',
+            port='5432',
         )
         conn.autocommit = True  # Enable autocommit for the database creation command
         cur = conn.cursor()
-
         # Attempt to create the new database
         cur.execute(sql.SQL("CREATE DATABASE {}").format(sql.Identifier(db_name)))
 
